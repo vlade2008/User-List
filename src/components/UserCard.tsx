@@ -1,64 +1,31 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-const items = [
-  {
-    header: 'ID: 2',
-    meta:'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-  {
-    header: 'ID: 2',
-    meta: 'Email: Christian john saclao',
-    description: 'Phone: 090202020202',
-  },
-]
+export type Props = {
+  filteredResults: any;
+};
 
-const UserCard = () => <Card.Group itemsPerRow={3} items={items} />
 
-export default UserCard
+const UserCard = ({filteredResults} : Props) => {
+  return (
+    <Card.Group itemsPerRow={3}>
+      {
+        filteredResults.map((item: any, key: number) => {
+          return (
+            <Card key={key}>
+              <Card.Content>
+                <Card.Header>ID: {item.id}</Card.Header>
+                <Card.Meta>Email: {item.email}</Card.Meta>
+                <Card.Description>
+                    Name: {item.name}
+                </Card.Description>
+              </Card.Content>
+            </Card>
+          )
+        })
+    }
+    </Card.Group>
+  )
+};
+
+export default UserCard;
